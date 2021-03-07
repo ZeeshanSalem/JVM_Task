@@ -1,4 +1,4 @@
-# flutter_ecommerce_whitelabel
+# JMM Task
 
 A new Flutter application.
 
