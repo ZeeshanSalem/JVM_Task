@@ -98,6 +98,12 @@ class ChatViewModel extends BaseViewModel {
     setState(ViewState.idle);
   }
 
+  deleteChat(){
+    _dbService.deleteMessage(conversation);
+    _dbService.deleteMyMessage(conversation);
+    notifyListeners();
+  }
+
 
 
 

@@ -48,7 +48,7 @@ class ChatScreen extends StatelessWidget {
                   ///
                   /// Top bar
                   ///
-                  _topAppBar(),
+                  _topAppBar(model),
 
                   ///
                   /// Chat Messages
@@ -159,7 +159,7 @@ class ChatScreen extends StatelessWidget {
 
 
 
-  _topAppBar() {
+  _topAppBar(ChatViewModel model) {
     return Container(
       width: double.infinity,
       height: 83,
@@ -192,7 +192,7 @@ class ChatScreen extends StatelessWidget {
           Text("${appUser.fullName}", style: subHeadingTextStyle,),
           Spacer(),
           OutlineButton(
-            onPressed: (){},
+            onPressed: ()=> model.deleteChat(),
             child: Text("Delete"),
           ),
           SizedBox(width: 20),

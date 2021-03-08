@@ -151,7 +151,39 @@ class DatabaseService {
       print('Exception @getConversationsStream: $e');
     }
   }
-  
+
+  deleteMessage(Conversation conversation){
+    try {
+       firebaseDbRef
+          .child('chatMessages')
+          .child('${conversation.receiverId}_${conversation.senderId}')
+          .remove();
+       firebaseDbRef
+           .child('conversations')
+           .child('${conversation.receiverId}_${conversation.senderId}')
+           .remove();
+
+    } catch (e) {
+      print('Exception Delete: $e');
+    }
+  }
+
+  deleteMyMessage(Conversation conversation) {
+    try {
+       firebaseDbRef
+          .child('chatMessages')
+          .child('${conversation.senderId}_${conversation.receiverId}')
+          .remove();
+
+       firebaseDbRef
+           .child('conversations')
+           .child('${conversation.senderId}_${conversation.receiverId}')
+           .remove();
+
+    } catch (e) {
+      print('Exception Delete: $e');
+    }
+  }
 
 
 
